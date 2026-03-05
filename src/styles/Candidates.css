@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+
+.page-container {
+  margin-left: 240px;
+  padding: 48px 52px;
+  min-height: 100vh;
+  background: #f0f2f7;
+  font-family: 'DM Sans', sans-serif;
+  background-image:
+    radial-gradient(ellipse at 80% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+}
+
+
+.candidate-container > h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.candidate-container > h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #6366f1);
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 32px;
+}
+
+
+.candidate-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+
+.candidate-form {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 8px 32px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: sticky;
+  top: 32px;
+}
+
+.candidate-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.candidate-form input,
+.candidate-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: #1e293b;
+  background: #f8fafc;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.candidate-form input::placeholder,
+.candidate-form textarea::placeholder {
+  color: #b0bac6;
+}
+
+.candidate-form input:focus,
+.candidate-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.candidate-form textarea {
+  height: 90px;
+  line-height: 1.5;
+}
+
+.candidate-form .btn-add {
+  width: 100%;
+  padding: 13px 18px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.02em;
+  margin-top: 6px;
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.candidate-form .btn-add:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  filter: brightness(1.05);
+}
+
+.candidate-form .btn-add:active {
+  transform: translateY(0);
+}
+
+
+.candidate-list {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 28px 16px;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.04),
+    0 8px 32px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  min-height: 300px;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.list-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.candidate-count {
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  color: #3730a3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+
+.candidate-cards {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.candidate-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 18px 20px;
+  border: 1.5px solid #f1f5f9;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  animation: cardIn 0.3s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.candidate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  border-color: #e0e7ff;
+  background: #ffffff;
+}
+
+.card-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card-body {
+  flex: 1;
+}
+
+.candidate-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.candidate-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+  background: #e2e8f0;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.meta-badge.party {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.meta-badge.age {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.candidate-description {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+
+.btn-delete {
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  background: transparent;
+  color: #ef4444;
+  border: 1.5px solid #fecaca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: scale(1.03);
+}
+
+
+.no-candidates,
+.loading-candidates {
+  text-align: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.no-candidates::before {
+  content: '🗳️';
+  display: block;
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+
+@media (max-width: 900px) {
+  .candidate-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .candidate-form {
+    position: static;
+  }
+
+  .page-container {
+    margin-left: 0;
+    padding: 24px 20px;
+  }
+}

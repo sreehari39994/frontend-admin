@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+/* ─── Container ──────────────────────────────────────────── */
+.counting-container {
+  padding: 48px 52px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.counting-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.counting-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
+}
+
+.counting-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.counting-subtitle {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.total-votes-pill {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ─── Winner Banner ──────────────────────────────────────── */
+.winner-banner {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.3);
+  animation: fadeUp 0.4s ease both;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.winner-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.winner-icon {
+  font-size: 36px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.winner-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 4px;
+}
+
+.winner-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.winner-party {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+}
+
+.winner-vote-block {
+  text-align: right;
+}
+
+.winner-vote-count {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.winner-vote-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Results Panel ──────────────────────────────────────── */
+.counting-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px 28px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(15,23,42,0.07);
+  margin-bottom: 24px;
+  animation: fadeUp 0.4s ease 0.1s both;
+}
+
+.counting-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.counting-panel-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.candidate-count-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3730a3;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ─── Candidate Rows ─────────────────────────────────────── */
+.count-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.count-row {
+  display: grid;
+  grid-template-columns: 44px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1.5px solid #f1f5f9;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  animation: fadeUp 0.35s ease both;
+}
+
+.count-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15,23,42,0.09);
+  border-color: #e0e7ff;
+  background: #ffffff;
+}
+
+.count-row.winner {
+  background: linear-gradient(135deg, rgba(59,130,246,0.04), rgba(99,102,241,0.04));
+  border-color: rgba(59,130,246,0.25);
+}
+
+/* rank */
+.count-rank {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* info */
+.count-info { flex: 1; min-width: 0; }
+
+.count-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.count-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.count-party-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.winner-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* bar */
+.count-bar-track {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.count-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  min-width: 4px;
+}
+
+/* stats */
+.count-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.count-votes {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.count-share {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* ─── Share Panel ────────────────────────────────────────── */
+.share-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 26px 28px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(15,23,42,0.07);
+  animation: fadeUp 0.4s ease 0.2s both;
+}
+
+.share-bar-wrap {
+  display: flex;
+  height: 14px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f1f5f9;
+  margin: 16px 0;
+  gap: 2px;
+}
+
+.share-segment {
+  height: 100%;
+  min-width: 2px;
+}
+
+.share-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legend-name { font-weight: 500; }
+
+.legend-pct {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* ─── Loading Skeletons ──────────────────────────────────── */
+.counting-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.count-row-skeleton {
+  display: grid;
+  grid-template-columns: 44px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  animation: fadeUp 0.3s ease both;
+}
+
+.skel {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skel-rank  { width: 36px; height: 36px; border-radius: 10px; }
+.skel-body  { display: flex; flex-direction: column; gap: 8px; }
+.skel-name  { height: 14px; width: 60%; }
+.skel-bar   { height: 8px; width: 100%; border-radius: 20px; }
+.skel-votes { height: 20px; width: 50px; justify-self: end; }
+
+/* ─── Empty state ────────────────────────────────────────── */
+.counting-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+}
+
+.counting-empty span { font-size: 36px; display: block; margin-bottom: 12px; }
+.counting-empty p    { font-size: 14px; margin: 0; }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .counting-container { padding: 24px 20px; }
+  .count-row { grid-template-columns: 36px 1fr 70px; gap: 10px; }
+  .winner-banner { flex-direction: column; align-items: flex-start; }
+  .winner-vote-block { text-align: left; }
+}

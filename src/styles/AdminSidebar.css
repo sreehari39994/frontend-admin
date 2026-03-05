@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+/* ─── CSS Variables ──────────────────────────────────────── */
+:root {
+  --sidebar-w: 248px;
+  --sidebar-bg: #0d1b2a;
+  --sidebar-surface: rgba(255,255,255,0.05);
+  --sidebar-border: rgba(255,255,255,0.08);
+  --sidebar-text: rgba(255,255,255,0.6);
+  --sidebar-text-active: #ffffff;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59,130,246,0.25);
+}
+
+/* ─── Global Reset ───────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: #f0f2f7;
+}
+
+/* ─── Sidebar Shell ──────────────────────────────────────── */
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  z-index: 100;
+
+  /* Subtle left-edge glow */
+  box-shadow:
+    4px 0 24px rgba(0,0,0,0.25),
+    inset -1px 0 0 var(--sidebar-border);
+
+  /* Faint mesh background */
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.08) 0%, transparent 60%);
+}
+
+/* ─── Brand ──────────────────────────────────────────────── */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 20px 24px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.brand-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+/* ─── Divider ────────────────────────────────────────────── */
+.sidebar-divider {
+  height: 1px;
+  background: var(--sidebar-border);
+  margin: 0 20px;
+}
+
+/* ─── Section Label ──────────────────────────────────────── */
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 18px 24px 8px;
+  margin: 0;
+}
+
+/* ─── Nav Links ──────────────────────────────────────────── */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 12px;
+}
+
+.sidebar-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--sidebar-text);
+  font-size: 13.5px;
+  font-weight: 400;
+  transition: background 0.18s, color 0.18s;
+  overflow: hidden;
+}
+
+.sidebar-link:hover {
+  background: var(--sidebar-surface);
+  color: rgba(255,255,255,0.88);
+}
+
+.sidebar-link.active {
+  background: linear-gradient(135deg, rgba(59,130,246,0.22), rgba(99,102,241,0.15));
+  color: var(--sidebar-text-active);
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px rgba(59,130,246,0.3);
+}
+
+/* Active left bar */
+.sidebar-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Right pip (dot) for active */
+.active-pip {
+  position: absolute;
+  right: 14px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 14px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.link-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Logout ─────────────────────────────────────────────── */
+.sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 26px 24px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.18s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-logout:hover {
+  color: #f87171;
+}
+
+/* ─── Page Container (offset for sidebar) ────────────────── */
+.page-container {
+  margin-left: var(--sidebar-w);
+  padding: 48px 52px;
+  min-height: 100vh;
+  background: #f0f2f7;
+  font-family: 'DM Sans', sans-serif;
+  background-image:
+    radial-gradient(ellipse at 80% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 64px;
+  }
+
+  .brand-text,
+  .nav-section-label,
+  .link-label,
+  .brand-sub,
+  .active-pip {
+    display: none;
+  }
+
+  .sidebar-brand {
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .page-container {
+    margin-left: 64px;
+    padding: 24px 20px;
+  }
+}
