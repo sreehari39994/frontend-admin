@@ -8,6 +8,7 @@ import Counting from './pages/Counting.jsx'
 import VotingStatus from './pages/VotingStatus.jsx'
 import AdminFaceSettings from './pages/AdminFaceSettings.jsx'
 import ProtectedRoute from './ProtectedRoute.jsx'
+import AdminKycRegistered from './pages/AdminKycRegistered.jsx'
 function App() {
   
 
@@ -20,6 +21,7 @@ function App() {
      <Route path='/u'element={<ProtectedRoute><Counting/></ProtectedRoute>}/>
      <Route path='/s'element={<ProtectedRoute><VotingStatus/></ProtectedRoute>}/>
      <Route path='/f'element={<ProtectedRoute><AdminFaceSettings/></ProtectedRoute>}/>
+     <Route path="/kyc" element={<ProtectedRoute><AdminKycRegistered /></ProtectedRoute>} />
          </Routes>
     </BrowserRouter>
      

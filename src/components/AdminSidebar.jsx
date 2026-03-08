@@ -3,12 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logoutUser } from "../api/AuthApi";
 
 const navItems = [
-  { to: "/d",      label: "Dashboard",        icon: "⬛" },
-  { to: "/c",      label: "Candidates",       icon: "🏛" },
-  { to: "/voters", label: "Voters",           icon: "👥" },
-  { to: "/f",      label: "Face Recognition", icon: "🪪" },
-  { to: "/s",      label: "Voting Status",    icon: "📊" },
-  { to: "/u",      label: "Counting",         icon: "🔢" },
+  { to: "/d",   label: "Dashboard",        icon: "⬛" },
+  { to: "/c",   label: "Candidates",       icon: "🏛" },
+  { to: "/voters", label: "Voters",        icon: "👥" },
+  { to: "/f",   label: "Face Recognition", icon: "🪪" },
+  { to: "/kyc", label: "KYC Registered",   icon: "🧬" },
+  { to: "/s",   label: "Voting Status",    icon: "📊" },
+  { to: "/u",   label: "Counting",         icon: "🔢" },
 ];
 
 const AdminSidebar = () => {

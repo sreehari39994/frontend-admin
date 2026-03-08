@@ -1,0 +1,378 @@
+
+
+/* ── Page wrapper ── */
+.kyc-container {
+  padding: 32px 32px 48px;
+}
+
+/* ── Header ── */
+.kyc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kyc-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.kyc-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Refresh button */
+.kyc-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: border-color .18s, background .18s, transform .12s;
+}
+.kyc-refresh-btn:hover:not(:disabled) {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #eff6ff;
+  transform: translateY(-1px);
+}
+.kyc-refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinning { animation: spin .7s linear infinite; }
+
+/* ── Summary pills ── */
+.kyc-summary-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.kyc-summary-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1.5px solid;
+  min-width: 130px;
+}
+.kyc-summary-pill.total   { background: #f0f9ff; border-color: #bae6fd; }
+.kyc-summary-pill.active  { background: #f0fdf4; border-color: #bbf7d0; }
+.kyc-summary-pill.inactive{ background: #fef9f0; border-color: #fde68a; }
+
+.pill-count {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #111827;
+}
+.pill-label {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ── Toolbar ── */
+.kyc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Search */
+.kyc-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0 12px;
+  gap: 8px;
+  min-width: 260px;
+  transition: border-color .18s;
+}
+.kyc-search-wrap:focus-within { border-color: #3b82f6; }
+.kyc-search-wrap svg { flex-shrink: 0; color: #9ca3af; }
+
+.kyc-search {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 0.875rem;
+  color: #111827;
+  background: transparent;
+}
+.kyc-search::placeholder { color: #9ca3af; }
+
+.kyc-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color .15s;
+}
+.kyc-search-clear:hover { color: #ef4444; }
+
+/* Filter tabs */
+.kyc-filter-tabs {
+  display: flex;
+  gap: 4px;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.kyc-filter-tab {
+  padding: 7px 18px;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #6b7280;
+  transition: background .18s, color .18s, box-shadow .18s;
+}
+.kyc-filter-tab.active {
+  background: #fff;
+  color: #111827;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+.kyc-filter-tab:hover:not(.active) { color: #374151; }
+
+/* ── Cards grid ── */
+.kyc-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1400px) { .kyc-grid { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 1100px) { .kyc-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 860px)  { .kyc-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .kyc-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── Individual card ── */
+.kyc-card {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+}
+.kyc-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  transform: translateY(-3px);
+}
+.kyc-card.card-active  { border-color: #d1fae5; }
+.kyc-card.card-inactive{ border-color: #fde68a; }
+
+/* ── Image wrap — the main visual area ── */
+.kyc-card-image-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* perfect square */
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+/* Avatar fills the square */
+.kyc-avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Image variant fills square */
+.kyc-avatar-img {
+  padding: 0;
+  overflow: hidden;
+  background: #e5e7eb;
+  border-radius: 0;
+}
+.kyc-avatar-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  transition: transform .3s ease;
+}
+.kyc-card:hover .kyc-avatar-img img { transform: scale(1.05); }
+
+/* Status badge — overlaid top right on image */
+.kyc-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+.kyc-badge.badge-active  { background: rgba(209,250,229,.92); color: #065f46; }
+.kyc-badge.badge-inactive{ background: rgba(254,243,199,.92); color: #92400e; }
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.badge-active  .badge-dot { background: #10b981; }
+.badge-inactive .badge-dot{ background: #f59e0b; }
+
+/* Delete overlay — slides up on hover */
+.kyc-delete-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,.65) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .22s ease, transform .22s ease;
+}
+.kyc-card:hover .kyc-delete-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delete button */
+.kyc-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 7px 0;
+  background: rgba(239,68,68,.9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s;
+  backdrop-filter: blur(4px);
+}
+.kyc-delete-btn:hover:not(:disabled) { background: #ef4444; }
+.kyc-delete-btn:disabled { opacity: .55; cursor: not-allowed; }
+
+.kyc-btn-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  display: inline-block;
+}
+
+/* Card info — below image */
+.kyc-card-info {
+  padding: 10px 12px 12px;
+  text-align: center;
+}
+.kyc-card-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2px;
+  word-break: break-word;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.kyc-card-name em { color: #9ca3af; font-style: italic; font-weight: 400; }
+.kyc-card-id {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* ── Skeleton loading ── */
+.kyc-card-skeleton {
+  pointer-events: none;
+}
+.kyc-card-skeleton .kyc-card-image-wrap {
+  animation: shimmer 1.4s ease-in-out infinite;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 400% 100%;
+}
+.kyc-card-skeleton .kyc-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+}
+
+/* ── Empty state ── */
+.kyc-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 64px 20px;
+  color: #9ca3af;
+  text-align: center;
+}
+.kyc-empty p    { margin: 0; font-size: 1rem; color: #6b7280; font-weight: 600; }
+.kyc-empty span { font-size: 0.82rem; }
+
+/* ── Result count ── */
+.kyc-result-count {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}

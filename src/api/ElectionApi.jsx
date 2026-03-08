@@ -53,3 +53,21 @@ export const fetchVoteCounts = async () => {
   const res = await baseApi.get("/candidate/vote-count/");
   return res.data; 
 };
+
+export const registerFace = async (formData) => {
+  const res = await baseApi.post("/accounts/registerFace/", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+  return res.data;
+};
+
+export const fetchRegisteredFaces = async (statusFilter = "all") => {
+  const params = statusFilter !== "all" ? { status: statusFilter } : {};
+  const res = await baseApi.get("/accounts/faces/", { params });
+  return res.data;
+};
+
+export const deleteRegisteredFace = async (faceId) => {
+  const res = await baseApi.delete(`/accounts/faces/${faceId}/delete/`);
+  return res.data;
+};
