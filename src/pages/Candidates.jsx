@@ -131,7 +131,7 @@ const Candidates = () => {
               </div>
 
               <div className="field-group">
-                <label>Party</label>
+                <label>Group</label>
                 <input
                   type="text"
                   name="party"
